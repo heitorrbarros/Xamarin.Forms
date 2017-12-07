@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:TestContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Xamarin.Forms.Controls;assembly=Xamarin.Forms.Core.Android.UITests"
+             x:Class="Xamarin.Forms.Controls.Issues.Github1331">
+	<ContentPage.Content>
+		<ListView ItemsSource="{Binding Items}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Cell.ContextActions>
+							<MenuItem Text="Action" />
+						</Cell.ContextActions>
+						<StackLayout Orientation="Horizontal">
+							<Label Text="{Binding Text}" HorizontalOptions="FillAndExpand" />
+							<Label Text="Action">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding ActionTappedCommand}" />
+								</Label.GestureRecognizers>
+							</Label>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<!--  ItemTapped="ListView_OnItemTapped"-->
+	</ContentPage.Content>
+</controls:TestContentPage>
